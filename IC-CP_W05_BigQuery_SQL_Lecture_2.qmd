@@ -12,7 +12,7 @@ format:
 
 # Assignment Overview
 
-**GitHub Page Link:** https://jarrodgriffin.com/IC-CP-W05-BigQuery-SQL-Lecture-2/
+**GitHub Page Link:** <https://jarrodgriffin.com/IC-CP-W05-BigQuery-SQL-Lecture-2/IC-CP_W05_BigQuery_SQL_Lecture_2.html>
 
 This document contains the SQL queries run during Lecture 2.
 
