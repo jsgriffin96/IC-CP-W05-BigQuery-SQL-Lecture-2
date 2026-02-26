@@ -1,5 +1,5 @@
 ---
-title: "IC/CP-W05 BigQuery SQL Lecture 2"
+title: "IC/CP-W05 BigQuery SQL - Lecture 2"
 subtitle: "BigQuery Lecture 2 Notes & Output"
 author: "Jarrod Griffin"
 date: "2026-02-25"
@@ -20,18 +20,34 @@ This document contains the SQL queries run during Lecture 2.
 # Query 1
 
 ## Description
-*Replace this text with your explanation of what Query 1 does.*
+This query utilizes a Common Table Expression (CTE) to flag whether a user is "new" (based on first_visit or first_open events) and then aggregates the results to compare total users against new users.
 
 ## SQL Code
 ```sql
 #| eval: false
--- Paste your SQL code for Query 1 here
-SELECT * FROM `project.dataset.table`
-LIMIT 10;
+
+WITH UserInfo AS (
+  SELECT
+    user_pseudo_id,
+    MAX(IF(event_name IN ('first_visit', 'first_open'), 1, 0)) AS is_new_user
+  FROM 
+    `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+  WHERE 
+    _TABLE_SUFFIX BETWEEN '20201101' AND '20201130'
+  GROUP BY 
+    user_pseudo_id
+)
+
+SELECT
+  COUNT(*) AS total_users,
+  SUM(is_new_user) AS new_users
+FROM 
+  UserInfo;
 ```
 
 ## Output
-*(Paste your screenshot of the BigQuery output here)*
+
+![](screenshots/query_1.png)
 
 ---
 

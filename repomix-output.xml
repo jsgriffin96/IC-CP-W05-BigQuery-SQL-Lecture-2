@@ -40,6 +40,8 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
+screenshots/
+  query_1.png
 _quarto.yml
 .gitattributes
 .gitignore
@@ -50,6 +52,11 @@ theme.scss
 
 <files>
 This section contains the contents of the repository's files.
+
+<file path=".gitattributes">
+# Auto detect text files and perform LF normalization
+* text=auto
+</file>
 
 <file path=".repomixignore">
 /docs
@@ -146,11 +153,6 @@ blockquote {
 }
 </file>
 
-<file path=".gitattributes">
-# Auto detect text files and perform LF normalization
-* text=auto
-</file>
-
 <file path="_quarto.yml">
 project:
   title: "IC/CP-W05 BigQuery SQL Lecture 2"
@@ -195,18 +197,29 @@ This document contains the SQL queries run during Lecture 2.
 # Query 1
 
 ## Description
-*Replace this text with your explanation of what Query 1 does.*
+Total users + new users
 
 ## SQL Code
 ```sql
 #| eval: false
--- Paste your SQL code for Query 1 here
-SELECT * FROM `project.dataset.table`
-LIMIT 10;
+
+WITH UserInfo AS (
+SELECT
+user_pseudo_id,
+MAX(IF(event_name IN ('first_visit', 'first_open'), 1, 0)) AS is_new_user
+FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+WHERE _TABLE_SUFFIX BETWEEN '20201101' AND '20201130'
+GROUP BY user_pseudo_id
+)
+SELECT
+  COUNT(*) AS total_users,
+  SUM(is_new_user) AS new_users
+FROM UserInfo;
 ```
 
 ## Output
-*(Paste your screenshot of the BigQuery output here)*
+
+![](screenshots/query_1.png)
 
 ---
 
