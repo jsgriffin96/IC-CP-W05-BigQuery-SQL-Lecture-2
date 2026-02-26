@@ -1,0 +1,88 @@
+---
+title: "IC/CP-W05 BigQuery SQL Lecture 2"
+subtitle: "BigQuery Lecture 2 Notes & Output"
+author: "Jarrod Griffin"
+date: "2026-02-25"
+format:
+  html:
+    toc: true
+    embed-resources: true
+    theme: cosmo
+---
+
+# Assignment Overview
+
+**GitHub Page Link:** [Insert your published GitHub Pages URL here]
+
+This document contains the SQL queries run during Lecture 2.
+
+---
+
+# Query 1
+
+## Description
+*Replace this text with your explanation of what Query 1 does.*
+
+## SQL Code
+```sql
+
+-- Paste your SQL code for Query 1 here
+SELECT * FROM `project.dataset.table`
+LIMIT 10;
+```
+
+## Output
+*(Paste your screenshot of the BigQuery output here)*
+
+---
+
+# Query 2
+
+## Description
+*Replace this text with your explanation of what Query 2 does.*
+
+## SQL Code
+```sql
+-- Paste your SQL code for Query 2 here
+
+```
+
+## Output
+*(Paste your screenshot of the BigQuery output here)*
+
+---
+
+# Query 3
+
+## Description
+*Replace this text with your explanation of what Query 3 does.*
+
+## SQL Code
+```sql
+-- Paste your SQL code for Query 3 here
+
+```
+
+## Output
+*(Paste your screenshot of the BigQuery output here)*
+
+---
+
+# Query 4
+
+## Description
+*Replace this text with your explanation of what Query 4 does.*
+
+## SQL Code
+```sql
+-- Paste your SQL code for Query 4 here
+
+```
+
+## Output
+*(Paste your screenshot of the BigQuery output here)*
+
+---
+
+# Summary
+*Add any final notes or observations here.*
