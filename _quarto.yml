@@ -4,5 +4,10 @@ project:
   resources:
     - ".nojekyll"
 
-
-
+format:
+  html:
+    theme: 
+      - cosmo       # The base theme
+      - theme.scss # Your custom GoogleSQL overrides
+    toc: true
+    embed-resources: false

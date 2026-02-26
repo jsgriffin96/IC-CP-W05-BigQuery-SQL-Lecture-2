@@ -1,0 +1,88 @@
+/*-- scss:defaults --*/
+
+// 1. Google Brand Colors
+$google-blue: #4285F4;
+$google-red: #EA4335;
+$google-yellow: #FBBC05;
+$google-green: #34A853;
+$google-grey-100: #F1F3F4;
+$google-grey-300: #DADCE0;
+$google-text: #202124;
+
+// 2. Override Bootstrap Defaults (The "Robust" Way)
+// This forces Quarto to use Google Blue for ALL active states automatically
+$primary: $google-blue;
+$body-color: $google-text;
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-monospace: 'Roboto Mono', monospace;
+$headings-font-weight: 500;
+
+/*-- scss:rules --*/
+
+// 3. Header Styling
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  color: $google-text;
+}
+
+h1 {
+  color: $google-blue;
+  border-bottom: 2px solid $google-grey-100;
+  padding-bottom: 0.5rem;
+  font-weight: 300;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  border-left: 4px solid $google-blue;
+  padding-left: 10px;
+}
+
+// 4. Code Block Styling (BigQuery Editor Vibe)
+div.sourceCode {
+  background-color: $google-grey-100;
+  border: 1px solid $google-grey-300;
+  border-radius: 8px;
+  margin-bottom: 1em;
+  // Use box-shadow to lift it without breaking layout
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  pre {
+    padding: 1rem;
+    color: #37474F;
+  }
+}
+
+// 5. Table of Contents (Fixed)
+// We do NOT style #TOC directly to avoid breaking sticky positioning
+#TOC {
+  // Only style the text/links inside
+  .nav-link {
+    font-size: 0.9rem;
+    color: #5f6368 !important; 
+    border-left: 2px solid transparent; // Placeholder for alignment
+    padding-left: 1rem;
+    
+    // Hover state
+    &:hover {
+      color: $google-blue !important;
+    }
+
+    // Active state (ScrollSpy trigger)
+    &.active {
+      color: $google-blue !important;
+      font-weight: 500;
+      border-left: 2px solid $google-blue; // The indicator line
+      background-color: transparent; 
+    }
+  }
+}
+
+// 6. Blockquotes
+blockquote {
+  border-left: 4px solid $google-yellow;
+  background-color: rgba(251, 188, 5, 0.05); 
+  padding: 1rem;
+  color: #5f6368;
+}
